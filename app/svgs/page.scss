@@ -1,0 +1,33 @@
+
+.vogo_svg {
+    width: 120px;
+    height: 120px;
+
+    position: fixed;
+    top: 0;
+}
+
+.vogo_path {
+    /* fill: none; */
+    stroke: green;
+    stroke-width: 5px;
+
+    margin: .5rem;
+
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+
+
+    /* animation: kf_vogo 2s ease-in-out 2s 1 forwards; */
+}
+
+
+@keyframes kf_vogo {
+    99% {
+        fill: none;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        fill: rgb(182, 237, 182);
+    }
+}
