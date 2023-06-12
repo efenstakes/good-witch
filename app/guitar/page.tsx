@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Text } from '@react-three/drei'
 import { motion } from 'framer-motion'
@@ -45,13 +45,9 @@ const itemVariants = {
 const HumbuckerSelectorPickup = "Humbucker & Selector Pickups"
 const VolumeToneControls = "Volume & Tone Controls"
 const NeckColor = "Neck"
-const ChainCoverColor = "Chain Cover"
-const HubAxleColor = "Hub & Axle"
 const BodyColor = "Body"
 export default function HomePage() {
-    const svgRef = useRef(null)
-    
-    
+
     const [ configOptions, setConfigOptions ] = useState<Array<IConfiguratorOption>>(
         [
             {
@@ -105,127 +101,90 @@ export default function HomePage() {
         return configOptions.find(c=> c.title === HumbuckerSelectorPickup)!.selectedColor
     }
     
+    return (
+        <div>
 
 
-  useEffect(()=> {
-    // svgRef.current.setAttribute('style')
-    // svgRef.current.style.strokeDashoffset = 0
-    // svgRef.current.style.strokeDashArray = 0.5
-    // console.log('window ', window.innerHeight)
-    window.addEventListener('scroll', (e)=> {
-      if( !svgRef || !svgRef.current ) return
-      // console.log("window.innerHeight ", document.body.scrollHeight)
-      // console.log("scroll ", window.scrollY)
-      // console.log("scroll at ", window.scrollY / (document.body.scrollHeight - window.innerHeight) )
-      svgRef.current.style.strokeDashoffset = 1 - (window.scrollY / (document.body.scrollHeight - window.innerHeight))
-    })
-
-    // document.addEventListener('keydown', (e)=> {
-    //     console.log("got a keydown ", e)
-    // })
-    document.addEventListener('keydown', onKeyPress)
-
-    return ()=> {
-        document.removeEventListener('keydown', onKeyPress)
-        document.removeEventListener('scroll', null)
-    }
-  }, [])
-
-
-  const onKeyPress = (event) => {
-    console.log("clicked key ", event)
-  }
-
-
-  return (
-    <div
-        className='page'
-        onKeyUp={(e)=> onKeyPress(e)}
-        onClick={e=> console.log("clicked")}
-        onKeyPress={e=> console.log("onKeyPress")}
-    >
-
-
-        <Canvas shadows style={{ width: '100vw', height: '100vh' }}>
-            <ambientLight />
-            <GuitarModel
-                neck={getNeckColor()}
-                body={getBodyColor()}
-                volumeToneControls={getVolumeToneControls()}
-                humbuckerSelectorPickup={getHumbuckerSelectorPickup()}
-            />
-            
-            <spotLight args={[ 'green' ]} />
-
-            <Text
-                font="/assets/fonts/Hyperion_Bold_Bold.json"
-                scale={3.8}
-                position={[ 0, 0, -12 ]}
-                fontSize={1.2}
-            >
-                The Martians.
-                <meshStandardMaterial
-                    color="whitesmoke"
-                    transparent
-                    opacity={.6}
+            <Canvas shadows style={{ width: '100vw', height: '100vh' }}>
+                <ambientLight />
+                <GuitarModel
+                    neck={getNeckColor()}
+                    body={getBodyColor()}
+                    volumeToneControls={getVolumeToneControls()}
+                    humbuckerSelectorPickup={getHumbuckerSelectorPickup()}
                 />
-            </Text>
+                
+                <spotLight args={[ 'green' ]} />
 
-            <OrbitControls />
+                <Text
+                    font="/assets/fonts/Hyperion_Bold_Bold.json"
+                    scale={3.8}
+                    position={[ 0, 0, -12 ]}
+                    fontSize={1.2}
+                >
+                    The Martians.
+                    <meshStandardMaterial
+                        color="whitesmoke"
+                        transparent
+                        opacity={.6}
+                    />
+                </Text>
 
-            <color args={[ 'lightblue' ]} attach='background' />
-        </Canvas>
+                <OrbitControls />
 
-      
-        <motion.div
-            className='guitar_content'
-            variants={containerVariants}
-            initial="initial"
-            animate="animate"
-        >
+                <color args={[ 'lightblue' ]} attach='background' />
+            </Canvas>
 
-            <motion.h4
-                className=''
-                variants={itemVariants}
+        
+            <motion.div
+                className='guitar_content'
+                variants={containerVariants}
+                initial="initial"
+                animate="animate"
             >
-                You are now,
-            </motion.h4>
-            <VSpacerComponent space={-.5} />
 
-            <motion.p
-                className='title_4 guitar_content__name'
-                variants={itemVariants}
-            >
-                Dave
-            </motion.p>
-            <VSpacerComponent space={-.5} />
-            
-            <motion.p
-                className='guitar_content__instruction'
-                variants={itemVariants}
-            >
-                <motion.small>
-                    You are a music manager for The Martian Band. Customize their guitar for their new world tour.
-                </motion.small>
-            </motion.p>
+                <motion.h4
+                    className=''
+                    variants={itemVariants}
+                >
+                    You are now,
+                </motion.h4>
+                <VSpacerComponent space={-.5} />
 
-            <ConfiguratorComponent>
-                {
-                    configOptions.map((config, i)=> {
+                <motion.p
+                    className='title_4 guitar_content__name'
+                    variants={itemVariants}
+                >
+                    Dave
+                </motion.p>
+                <VSpacerComponent space={-.5} />
+                
+                <motion.p
+                    className='guitar_content__instruction'
+                    variants={itemVariants}
+                >
+                    <motion.small>
+                        You are a music manager for The Martian Band. Customize their guitar for their new world tour.
+                    </motion.small>
+                </motion.p>
 
-                        return (
-                            <ColorPickerComponent
-                                key={i}
-                                options={config}
-                                onSelectedColor={ onSelectedColor }
-                            />
-                        )
-                    })
-                }
-            </ConfiguratorComponent>
+                <ConfiguratorComponent>
+                    {
+                        configOptions.map((config, i)=> {
 
-        </motion.div>
+                            return (
+                                <ColorPickerComponent
+                                    key={i}
+                                    options={config}
+                                    onSelectedColor={ onSelectedColor }
+                                />
+                            )
+                        })
+                    }
+                </ConfiguratorComponent>
 
-    </div>
-  )
+            </motion.div>
+
+        </div>
+    )
 }
