@@ -74,10 +74,11 @@ export default function HomePage() {
 
         const routes = [
             "guitar",
-
+            "truck",
+            "bike",
         ]
         const randomRoute = Math.floor(Math.random() * routes.length)
-
+        console.log("randomRoute ", randomRoute)
         // navigate to it
         router.push(routes[randomRoute])
     }
