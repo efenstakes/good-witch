@@ -1,0 +1,58 @@
+@import '../../styles/commons';
+
+
+.sappbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+
+    display: flex;
+    justify-content: center;
+    gap: 0 2rem;
+
+    padding: .5rem;
+
+    background-image: linear-gradient(
+        0deg,
+        transparent,
+        rgba($WHITE_COLOR, .3),
+    );
+    backdrop-filter: blur(10px);
+
+    z-index: 20;
+
+    @media screen and (min-width: 768px) {
+        // justify-content: flex-end;
+        padding: 1rem;
+    }
+
+}
+
+
+.appbar__icon_container {
+    background-color: rgba($BLACK_ALT_COLOR, .7);
+    backdrop-filter: blur(10px);
+    color: $WHITE_COLOR;
+
+    padding: .5rem;
+
+    border-radius: 50%;
+
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    
+    @media screen and (min-width: 768px) {
+        justify-content: flex-end;
+    }
+}
+
+.appbar__icon {
+    color: whitesmoke;
+    fill: whitesmoke;
+}
