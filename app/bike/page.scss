@@ -1,0 +1,38 @@
+@import '../styles/commons';
+
+
+.truck_content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    padding: 2rem;
+
+
+    z-index: 5;
+
+    font-family: '__Bebas_Neue_6a3ae9';
+
+    // background-color: red;
+
+    pointer-events: none;
+}
+
+
+.truck_content__instruction {
+    font-family: roboto;
+    max-width: 360px;
+}
+
+
+.truck_content__name {
+    color: whitesmoke;
+    font-family: 'Bebas Neue';
+}
