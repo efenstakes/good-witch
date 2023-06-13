@@ -15,6 +15,8 @@ import { Vector2 } from 'three/src/math/Vector2'
 
 // styles
 import './home.scss'
+import AppbarComponent from '../components/appbar/component'
+import { useWindowWidth } from '@react-hook/window-size'
 
 
 const containerVariants = {
@@ -45,6 +47,7 @@ const itemVariants = {
 
 export default function HomePage() {
     const router = useRouter()
+    const width = useWindowWidth()
 
     const svgRef = useRef(null)
 
@@ -93,8 +96,12 @@ export default function HomePage() {
         }
     }, [onKeyPress])
 
+    const isMobile = width < 768
     return (
         <div className='page'>
+
+            {/* appbar */}
+            <AppbarComponent />
 
             <Canvas shadows style={{ width: '100vw', height: '100vh' }}>
                 <ambientLight />
@@ -112,7 +119,7 @@ export default function HomePage() {
                 </EffectComposer>
            
                 <mesh>
-                    <sphereGeometry args={[ 2, 120, 120 ]} />
+                    <sphereGeometry args={[ isMobile ? 1.5 : 2, 120, 120 ]} />
                     <MeshDistortMaterial
                         attach="material"
                         color={ballConfig.color}

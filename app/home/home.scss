@@ -7,6 +7,8 @@
     height: 100%;
     width: 100vw;
 
+    overflow: hidden;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,4 +28,7 @@
     bottom: 5%;
 
     font-family: roboto;
+    text-align: center;
+    
+    padding: 0 .5rem;
 }
