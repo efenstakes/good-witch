@@ -11,6 +11,7 @@ import ConfiguratorComponent from '../components/configurator/component'
 import ColorPickerComponent from '../components/color_picker/component'
 import { IConfiguratorOption } from '../models/configuration'
 import VSpacerComponent from '../components/v_spacer/component'
+import AppbarComponent from '../components/appbar/component'
 
 
 // styles
@@ -103,6 +104,9 @@ export default function HomePage() {
     
     return (
         <div>
+
+            {/* appbar */}
+            <AppbarComponent />
 
 
             <Canvas shadows style={{ width: '100vw', height: '100vh' }}>

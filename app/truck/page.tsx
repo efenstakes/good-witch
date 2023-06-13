@@ -13,6 +13,8 @@ import TruckModel from '../components/truck/component'
 import ConfiguratorComponent from '../components/configurator/component'
 import ColorPickerComponent from '../components/color_picker/component'
 import VSpacerComponent from '../components/v_spacer/component'
+import AppbarComponent from '../components/appbar/component'
+
 
 // models
 import { IConfiguratorOption } from '../models/configuration'
@@ -119,6 +121,11 @@ const TruckPage = () => {
 
     return (
         <div className='page'>
+
+            {/* appbar */}
+            <AppbarComponent />
+
+
             <Canvas shadows camera={{ position: [5, 0, 15], fov: 30 }} style={{ width: '100vw', height: '100vh' }}>
                 <spotLight position={[0, 15, 0]} angle={0.3} penumbra={1} castShadow intensity={2} shadow-bias={-0.0001} />
                 <ambientLight />
