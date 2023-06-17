@@ -12,6 +12,7 @@ import ColorPickerComponent from '../components/color_picker/component'
 import { IConfiguratorOption } from '../models/configuration'
 import VSpacerComponent from '../components/v_spacer/component'
 import AppbarComponent from '../components/appbar/component'
+import CanvasLoader from '../components/canvas_loader/component'
 
 
 // styles
@@ -137,6 +138,8 @@ export default function HomePage() {
                 <OrbitControls />
 
                 <color args={[ 'lightblue' ]} attach='background' />
+
+                <CanvasLoader />
             </Canvas>
 
         

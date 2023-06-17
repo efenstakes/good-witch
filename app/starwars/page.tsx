@@ -16,6 +16,7 @@ import { containerVariants, itemVariants } from '../styles/variants';
 import X2Drone from '../components/drones/x2_drone'
 import VSpacerComponent from '../components/v_spacer/component';
 import AppbarComponent from '../components/appbar/component';
+import CanvasLoader from '../components/canvas_loader/component';
 
 
 
@@ -221,7 +222,7 @@ function StarWarsOne() {
                 </Float>
 
                     
-                <ModelsLoader />
+                <CanvasLoader />
             </Canvas>
 
             <motion.div
@@ -252,7 +253,7 @@ function StarWarsOne() {
                     variants={itemVariants}
                 >
                     <motion.small>
-                        But wtf, It's in the year 2043 and humanity kinda fucked up so now sector 42 is here.
+                        But wtf, It&apos;s in the year 2043 and humanity kinda fucked up so now sector 42 is here.
                     </motion.small>
                 </motion.p>
 
@@ -264,38 +265,6 @@ function StarWarsOne() {
 }
 
 
-const ModelsLoader = ()=> {
-    const { progress } = useProgress()
-
-    console.log("progress ", progress)
-
-    if( progress == 100 ) {
-        return (
-            <></>
-        )
-    }
-    return (
-        <group>
-            <Html
-                center
-                className='canvas_loader'
-            >
-                <h1>
-                    {progress} %
-                </h1>
-                <p>
-                    Loaded
-                </p>
-            </Html>
-        </group>
-    )
-    return (
-        <Html center>{progress} % loaded</Html>
-    )
-    return (
-        <div></div>
-    )
-}
 
 
 export default StarWarsOne

@@ -14,6 +14,7 @@ import ConfiguratorComponent from '../components/configurator/component'
 import ColorPickerComponent from '../components/color_picker/component'
 import VSpacerComponent from '../components/v_spacer/component'
 import AppbarComponent from '../components/appbar/component'
+import CanvasLoader from '../components/canvas_loader/component'
 
 
 // models
@@ -166,7 +167,7 @@ const TruckPage = () => {
                     </Text>
                 </group>
 
-
+                <CanvasLoader />
             </Canvas>
 
             {/* <ConfiguratorComponent>

@@ -14,6 +14,7 @@ import ColorPickerComponent from '../components/color_picker/component'
 import BikeModel from '../components/bike/component'
 import VSpacerComponent from '../components/v_spacer/component'
 import AppbarComponent from '../components/appbar/component'
+import CanvasLoader from '../components/canvas_loader/component'
 
 
 // models
@@ -148,7 +149,7 @@ const BikePage = () => {
                     </Text>
                 </group>
 
-
+                <CanvasLoader />
             </Canvas>
 
             {/* <ConfiguratorComponent>
