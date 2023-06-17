@@ -5,4 +5,68 @@
     /* height: 4000px; */
     min-height: 100sdh;
     position: relative;
+
+    overflow-x: hidden;
+}
+
+
+
+
+.floating_content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    padding: 2rem;
+    padding-top: 20%;
+
+
+    z-index: 5;
+
+    font-family: '__Bebas_Neue_6a3ae9';
+
+    // background-color: red;
+
+    pointer-events: none;
+
+    @media screen and (min-width: 768px) {
+        padding-top: 10%;
+    }
+}
+
+
+.floating_content__instruction {
+    font-family: roboto;
+    max-width: 360px;
+}
+
+
+.floating_content__title {
+    color: whitesmoke;
+}
+
+
+.canvas_loader {
+    color: whitesmoke;
+
+    background-color: rgba($BLACK_ALT_COLOR, .2);
+    backdrop-filter: blur(10px);
+
+    height: 100vh;
+    width: 100vw;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
