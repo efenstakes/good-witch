@@ -79,6 +79,7 @@ export default function HomePage() {
             "guitar",
             "truck",
             "bike",
+            "starwars",
         ]
         const randomRoute = Math.floor(Math.random() * routes.length)
         console.log("randomRoute ", randomRoute)
